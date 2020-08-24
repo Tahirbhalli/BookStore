@@ -9,15 +9,14 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import books from '../reducers/index';
 import App from '../components/App';
-import sampleBooks from '../sampleBooks';
 
-const store = createStore(books, sampleBooks);
 
+  const store = createStore(books, []);
 
   ReactDOM.render(
     <Provider store={store}>
-    <App />
-  </Provider>,
-    document.body.appendChild(document.createElement('div')),
+       <App />
+    </Provider>,
+        document.body.appendChild(document.createElement('div')),
   )
 

@@ -1,5 +1,11 @@
 class Api::BooksController < Api::BaseController
     def index
-        @arr = [1,2,3,4]
+        @books = Book.all
+    end
+    def create
+        
+    end
+    def destroy
+
     end
 end

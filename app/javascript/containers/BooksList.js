@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions/index';
+import { createBook } from '../actions/index';
 
 import CategoryFilter from '../components/CategoryFilter';
 
@@ -10,6 +11,11 @@ class BooksList extends Component {
   constructor(props) {
     super(props);
     this.handleFilterChange = this.handleFilterChange.bind(this);
+  }
+  async componentDidMount(){
+    const res = await fetch('http://127.0.0.1:3000/api/books')
+    const json = await res.json();
+    createBook(json.Book[0])
   }
 
   handleRemove = book => {
@@ -71,6 +77,9 @@ const mapDispatchToProps = dispatch => ({
   },
   changeFilter: filter => {
     dispatch(changeFilter(filter));
+  },
+  createBook: book => {
+    dispatch(createBook(book));
   },
 });
 

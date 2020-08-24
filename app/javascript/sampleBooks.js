@@ -1,21 +1,10 @@
-export const generateId = () => (Math.floor(Math.random() * 100) + 1);
 
-export default {
-  books: [
-    {
-      id: generateId(),
-      title: 'Foundation',
-      category: 'Sci-Fi',
-    },
-    {
-      id: generateId(),
-      title: 'c++,ruby on rails,javascript',
-      category: 'Learning',
-    },
-    {
-      id: generateId(),
-      title: '1984',
-      category: 'Action',
-    },
-  ],
-};
+async function getBooks() {
+
+//  return data;
+
+try { const response = await fetch('http://127.0.0.1:3000/api/books', {mode: 'cors'}); const catData = await response.json(); 
+return catData;
+}
+
+export default getBooks;

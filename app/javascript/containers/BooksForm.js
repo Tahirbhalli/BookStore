@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { generateId } from '../sampleBooks';
 import { createBook } from '../actions/index';
 
 const BookCategories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
@@ -13,7 +12,6 @@ class BooksForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: generateId(),
       title: '',
       category: BookCategories[0],
     };
@@ -33,7 +31,6 @@ class BooksForm extends React.Component {
     const { createBook } = this.props;
     createBook(this.state);
     this.setState({
-      id: generateId(),
       title: '',
       category: BookCategories[0],
     });
