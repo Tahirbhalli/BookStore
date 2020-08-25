@@ -4,14 +4,9 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import books from '../reducers/index';
 import App from '../components/App';
-
-
-  const store = createStore(books, []);
+import store from '../redux/store';
 
   ReactDOM.render(
     <Provider store={store}>
